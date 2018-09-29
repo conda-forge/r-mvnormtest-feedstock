@@ -1,5 +1,4 @@
 {% set version = '0.1-9' %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,12 +9,13 @@ package:
 source:
   fn: mvnormtest_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/mvnormtest_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/mvnormtest/mvnormtest_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/mvnormtest_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/mvnormtest/mvnormtest_{{ version }}.tar.gz
   sha256: 46dab6eb9e7d55b8d4054d14029613b89a308259f86ddc8952b0bf752e975dc5
 
 build:
-  number: 0
+  merge_build_host: True  # [win]
+  number: 1
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
@@ -23,14 +23,15 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
-
   run:
     - r-base
 
 test:
   commands:
-    - $R -e "library('mvnormtest')"  # [not win]
+    - $R -e "library('mvnormtest')"           # [not win]
     - "\"%R%\" -e \"library('mvnormtest')\""  # [win]
 
 about:
@@ -48,3 +49,4 @@ extra:
     - daler
     - jdblischak
     - cbrueffer
+    - dbast
