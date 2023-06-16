@@ -1,11 +1,11 @@
-About r-mvnormtest
-==================
+About r-mvnormtest-feedstock
+============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-mvnormtest-feedstock/blob/main/LICENSE.txt)
 
 Home: https://CRAN.R-project.org/package=mvnormtest
 
 Package license: GPL-2 and GPL-3
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-mvnormtest-feedstock/blob/main/LICENSE.txt)
 
 Summary: Generalization of shapiro-wilk test for multivariate variables.
 
