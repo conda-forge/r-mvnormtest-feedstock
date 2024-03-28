@@ -1,4 +1,4 @@
-{% set version = '0.1-9' %}
+{% set version = "0.1-9-3" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,12 +11,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/mvnormtest_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/mvnormtest/mvnormtest_{{ version }}.tar.gz
-  sha256: 46dab6eb9e7d55b8d4054d14029613b89a308259f86ddc8952b0bf752e975dc5
+  sha256: efd94ea064c077a4b98504431ddb25453b8f660f988ce5e4674dd44611f0bdc3
 
 build:
   noarch: generic
-  merge_build_host: True  # [win]
-  number: 1005
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
